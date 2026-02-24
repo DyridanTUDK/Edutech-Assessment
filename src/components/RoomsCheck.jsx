@@ -2,10 +2,22 @@ import React, { useState } from 'react';
 import { Checkbox, Divider } from 'antd';
 const CheckboxGroup = Checkbox.Group;
 
-export default function RoomsCheck({record,checkedList, setCheckedList, isEditing=false}) {
-  const [classRooms, setClassRooms] = useState(record?.classroom) 
-  console.log(record)
-  // const options = classRooms.map((room)=> room.name)
+export default function RoomsCheck({record,checkedList, setCheckedList}) {
+  
+  const [classRooms, setClassRooms] = useState([ {
+    name: "Physics",
+    fee: 1200,
+  },
+  {
+    name: "Chemistry",
+    fee: 1200,
+  },
+  {
+    name: "Biology",
+    fee: 1200,
+  },]) 
+
+  const options = classRooms.map((room)=> room.name)
   const checkAll = options.length === checkedList.length;
   const indeterminate = checkedList.length > 0 && checkedList.length < options.length;
   const onChange = list => {
