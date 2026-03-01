@@ -9,25 +9,12 @@ export default function EditModal({record,studentList, setStudentList}) {
     const [checkedList, setCheckedList] = useState(record.classroom);
     const [open, setOpen] = useState(false);
     
-    console.log(record)
     // Handle Form Data
     const [name, setName] = useState(record.name)
     const [phone, setPhone] = useState(record.phone)
     const [email, setEmail] = useState(record.email)
     
     console.log(name)
-    const handleSubmit = () =>{
-        const studentData = {
-            id: crypto.randomUUID(),
-            name: name,
-            phone: phone,
-            email: email, 
-            classroom: checkedList,
-        }
-        setStudentList([...studentList, studentData])
-        onClose()
-    }
-
     const updateSubmit = () =>{
         setStudentList(studentList.map(student=>{
             if(record.id===student.id){

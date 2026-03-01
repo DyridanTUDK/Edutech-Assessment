@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Checkbox, Divider } from 'antd';
 const CheckboxGroup = Checkbox.Group;
 
 export default function RoomsCheck({record,checkedList, setCheckedList}) {
   
+
+
   const [classRooms, setClassRooms] = useState([ {
     name: "Physics",
     fee: 1200,
@@ -17,7 +19,27 @@ export default function RoomsCheck({record,checkedList, setCheckedList}) {
     fee: 1200,
   },]) 
 
-  const options = classRooms.map((room)=> room.name)
+  useEffect(() => {
+  if (!record) return;
+
+  if (record.classroom) {
+    setCheckedList(record.classroom);
+  }
+
+  if (record.classroom) {
+    const hydratedRooms = record.classroom.map(name => ({
+      name,
+      fee: 1200
+    }));
+
+    setClassRooms(hydratedRooms);
+  }
+
+}, [record]);
+  
+  
+  
+  const options = classRooms.map(room => room?.name).filter(Boolean);
   const checkAll = options.length === checkedList.length;
   const indeterminate = checkedList.length > 0 && checkedList.length < options.length;
   const onChange = list => {
