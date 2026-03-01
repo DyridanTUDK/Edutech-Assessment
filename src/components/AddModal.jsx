@@ -33,14 +33,14 @@ export default function AddModal({studentList, setStudentList}) {
         };
         const onClose = () => {
           setOpen(false);
-    };
+        };
 
 
   return (
   <>
 
       <Button type="primary" onClick={showDrawer} icon={<PlusOutlined />}>
-        Add New Stundent
+        Add New Student
       </Button>
       <Drawer
         title="Create a new account"

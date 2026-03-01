@@ -14,7 +14,6 @@ export default function EditModal({record,studentList, setStudentList}) {
     const [phone, setPhone] = useState(record.phone)
     const [email, setEmail] = useState(record.email)
     
-    console.log(name)
     const updateSubmit = () =>{
         setStudentList(studentList.map(student=>{
             if(record.id===student.id){

@@ -6,7 +6,6 @@ import StudentTable from './components/StudentTable'
 
 function App() {
   const [studentList, setStudentList] = useState([])
-  console.log(studentList)
   return (
     <>
     <StudentTable studentList={studentList} setStudentList={setStudentList}  />

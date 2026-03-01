@@ -7,23 +7,23 @@ const { confirm } = Modal;
 export default function DeleteModal({record, studentList, setStudentList}) {
     const showDeleteConfirm = () => {
       confirm({
-        title: 'Are you sure delete this task?',
+        title: 'Are you sure delete this Student?',
         icon: <ExclamationCircleFilled />,
-        content: 'Some descriptions',
+        content: `Are you sure you want to delete the data of ${record.name}  `,
         okText: 'Yes',
         okType: 'danger',
         cancelText: 'No',
         onOk() {
           console.log('OK');
           setStudentList(studentList.filter(student => record.id !== student.id))
-          console.log(studentList)
+          // console.log(studentList)
         },
         onCancel() {
           console.log('Cancel');
         },
       });
     };
-    console.log(record)
+    // console.log(record)
     return (
     <Space wrap>
     <Button onClick={showDeleteConfirm} type="dashed">
